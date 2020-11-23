@@ -1,8 +1,14 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.0)
 project(libanswer)
 
+option(WITH_BOOST "with Boost" OFF)
+
+if (WITH_BOOST)
 find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
+add_definitions(-DUSEBOOST)
+endif()
+
 add_library(answer SHARED answer.cpp)
 set_target_properties(answer PROPERTIES VERSION 0.0.1 SOVERSION 0.0.1)
 
