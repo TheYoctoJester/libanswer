@@ -1,12 +1,17 @@
 cmake_minimum_required(VERSION 3.0)
 project(libanswer)
 
+option(WITH_VERBOSE "with verbose output" OFF)
 option(WITH_BOOST "with Boost" OFF)
+
+if (WITH_VERBOSE)
+add_compile_definitions(VERBOSEOUTPUT)
+endif()
 
 if (WITH_BOOST)
 find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
-add_definitions(-DUSEBOOST)
+add_compile_definitions(USEBOOST)
 endif()
 
 add_library(answer SHARED answer.cpp)
