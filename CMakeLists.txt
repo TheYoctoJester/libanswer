@@ -25,3 +25,5 @@ install(TARGETS ask DESTINATION bin)
 install(TARGETS answer DESTINATION lib)
 install(FILES answer.h DESTINATION include)
 
+enable_testing()
+add_subdirectory(test)
