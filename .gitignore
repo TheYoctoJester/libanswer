@@ -6,3 +6,6 @@ cmake_install.cmake
 ask
 libanswer.so
 build
+
+oe-logs
+oe-workdir
